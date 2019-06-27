@@ -1,3 +1,15 @@
+## To install
+
+Assuming you already have python3:
+
+```bash
+virtualenv -p /usr/bin/python3 py3
+source py3/bin/activate
+pip install -r requirments.txt
+python main.py
+```
+
+
 # Seq2Seq Chatbot
 
 This is a 200 lines implementation of Twitter/Cornell-Movie Chatbot, please read the following references before you read the code:

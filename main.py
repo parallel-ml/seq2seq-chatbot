@@ -87,14 +87,24 @@ if __name__ == "__main__":
 
     # Uncomment below statements if you have already saved the model
 
-    # load_weights = tl.files.load_npz(name='model.npz')
-    # tl.files.assign_weights(load_weights, model_)
+    load_weights = tl.files.load_npz(name='model.npz')
+    tl.files.assign_weights(load_weights, model_)
 
-    optimizer = tf.optimizers.Adam(learning_rate=0.001)
-    model_.train()
+    #optimizer = tf.optimizers.Adam(learning_rate=0.001)
+    #model_.train()
 
     seeds = ["happy birthday have a nice day",
                  "donald trump won last nights presidential debate according to snap online polls"]
+
+
+    for seed in seeds:
+        print("Query >", seed)
+        top_n = 3
+        for i in range(top_n):
+            sentence = inference(seed, top_n)
+            print(" >", ' '.join(sentence))
+
+    '''
     for epoch in range(num_epochs):
         model_.train()
         trainX, trainY = shuffle(trainX, trainY, random_state=0)
@@ -134,7 +144,7 @@ if __name__ == "__main__":
                 print(" >", ' '.join(sentence))
 
         tl.files.save_npz(model_.all_weights, name='model.npz')
-
+    '''
 
         
     
